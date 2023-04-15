@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Comparador Precios Mirabelli</string>
+
+    <string-array name="unidades">
+        <item>Gramo (g)</item>
+        <item>Kilogramo (Kg)</item>
+
+        <item>Litro (l)</item>
+        <item>Mililitro (ml)</item>
+        <item>Centilitro (cl)</item>
+        <item>Centrimetro Cubico (cm3)</item>
+        <item>Milimetro Cubico (mm3)</item>
+
+        <item>Metro (m)</item>
+        <item>Centimetro (cm)</item>
+        <item>Milimetro (mm)</item>
+    </string-array>
+
 </resources>
