@@ -2,8 +2,11 @@ package com.example.comparadorpreciosmirabelli
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import com.google.android.material.progressindicator.BaseProgressIndicator
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +23,22 @@ class MainActivity : AppCompatActivity() {
         val adaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,unidades)
         // seteo la prop. adapter del spinner con el adaptador creado
         spinner.adapter = adaptador
+
+
+        spinner.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?,
+                                        p1: View?,
+                                        index: Int,
+                                        p3: Long) {
+               Toast.makeText(this@MainActivity,unidades[index],Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
 
     }
 
