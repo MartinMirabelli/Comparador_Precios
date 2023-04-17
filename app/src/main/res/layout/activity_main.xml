@@ -24,7 +24,7 @@
             android:id="@+id/sp1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:contentDescription="Seleccione la Unidad de medida"
+            android:contentDescription="@string/spdescrip"
 
             />
 
@@ -36,6 +36,9 @@
             android:ems="10"
             android:inputType="numberDecimal"
             android:hint="@string/precio1"
+            android:importantForAutofill="no"
+            android:drawableStart="@drawable/baseline_monetization_on_24"
+            android:drawablePadding="12dp"
             />
 
         <EditText
@@ -46,7 +49,9 @@
             android:ems="10"
             android:inputType="numberDecimal"
             android:hint="@string/cantidad1"
-
+            android:importantForAutofill="no"
+            android:drawableStart="@drawable/baseline_square_foot_24"
+            android:drawablePadding="12dp"
             />
 
     </LinearLayout>
@@ -68,8 +73,7 @@
             android:id="@+id/sp2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-
-            android:contentDescription="Seleccione la Unidad de medida"
+            android:contentDescription="@string/spdescrip"
             />
 
         <EditText
@@ -79,7 +83,11 @@
             android:layout_weight="3"
             android:ems="10"
             android:hint="@string/precio2"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:importantForAutofill="no"
+            android:drawableStart="@drawable/baseline_monetization_on_24"
+            android:drawablePadding="12dp"
+            />
 
         <EditText
             android:id="@+id/cantidad2"
@@ -89,7 +97,9 @@
             android:ems="10"
             android:hint="@string/cantidad2"
             android:inputType="numberDecimal"
-
+            android:importantForAutofill="no"
+            android:drawableStart="@drawable/baseline_square_foot_24"
+            android:drawablePadding="12dp"
             />
 
     </LinearLayout>

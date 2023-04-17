@@ -1,13 +1,12 @@
 package com.example.comparadorpreciosmirabelli
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
-import com.google.android.material.progressindicator.BaseProgressIndicator
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
