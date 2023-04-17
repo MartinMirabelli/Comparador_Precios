@@ -23,8 +23,7 @@
         <Spinner
             android:id="@+id/sp1"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_weight="1"
+            android:layout_height="50dp"
             android:contentDescription="Seleccione la Unidad de medida"
 
             />
@@ -68,8 +67,8 @@
         <Spinner
             android:id="@+id/sp2"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_weight="1"
+            android:layout_height="50dp"
+
             android:contentDescription="Seleccione la Unidad de medida"
             />
 
