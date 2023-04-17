@@ -9,11 +9,21 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import prueba.TipoUnidad
+import prueba.TipoUnidad.*
+import prueba.unidad
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        /*
+        val unidadesList = listOf<unidad>(
+            unidad("Metro", Longitud,1),
+            unidad("Centimetro", Longitud,100),
+            unidad("Milimetro", Longitud,1000))
+         */
 
         var txterr = findViewById<TextView>(R.id.txterr)
 
@@ -29,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         // seteo la prop. adapter del spinner con el adaptador creado
         sp1.adapter = adaptador
         sp2.adapter = adaptador
+
+
 
         sp1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener
         {
