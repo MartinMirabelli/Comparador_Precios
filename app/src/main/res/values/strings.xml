@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Comparador Precios Mirabelli</string>
+    <string name="precio1">Precio 1</string>
+    <string name="precio2">Precio 2</string>
+    <string name="cantidad1">Cantidad 1</string>
+    <string name="cantidad2">Cantidad 2</string>
+
+    <string name="btncomparar">Comparar</string>
 
     <string-array name="unidades">
         <item>Gramo (g)</item>
