@@ -109,7 +109,6 @@
         android:layout_height="50dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:text="aca van a salir los errores\nOtra Lienea\notra mas"
         android:textSize="20sp"
         android:textColor="@color/red"
         android:layout_weight="1"
