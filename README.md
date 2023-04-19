@@ -1,4 +1,4 @@
-# Comparador_Precios
+# Comparador Precios
 TP Nº1 Materia Android I D.U.P. 
 de Martin Mirabelli
 Prof. Leonardo Acevedo
