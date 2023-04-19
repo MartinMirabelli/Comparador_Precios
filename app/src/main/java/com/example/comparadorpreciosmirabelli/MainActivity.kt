@@ -1,5 +1,6 @@
 package com.example.comparadorpreciosmirabelli
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -39,8 +40,10 @@ class MainActivity : AppCompatActivity() {
         val txtcant1 = findViewById<EditText>(R.id.cantidad1)
         val txtcant2 = findViewById<EditText>(R.id.cantidad2)
 
-        val btn_comparar = findViewById<Button>(R.id.btncomparar)
+        val btnComparar = findViewById<Button>(R.id.btncomparar)
         val txterr = findViewById<TextView>(R.id.txterr)
+        val linear1 = findViewById<LinearLayout>(R.id.llopcion1)
+        val linear2 = findViewById<LinearLayout>(R.id.llopcion2)
 
         //creo un ArrayAdapter para la lista creada.
         val adaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,uni_list)
@@ -60,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
+                unidad1 = uni_list[0]  // siempre hay algo seleccionado
             }
         }
 
@@ -76,11 +79,11 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
+                unidad2 = uni_list[0]  // siempre hay algo seleccionado
             }
         }
 
-       btn_comparar.setOnClickListener {
+       btnComparar.setOnClickListener {
            producto1.precio = txtprecio1.text.toString().toFloatOrNull()
            producto1.cantidad = txtcant1.text.toString().toFloatOrNull()
            producto1.uni = unidad1
@@ -88,18 +91,25 @@ class MainActivity : AppCompatActivity() {
            producto2.cantidad = txtcant2.text.toString().toFloatOrNull()
            producto2.uni = unidad2
 
+           limpiar(linear1,linear2,txterr)
+
+           txterr.setTextColor(Color.RED)
            txterr.text = vererrores (producto1,producto2)
+
            if( txterr.text =="" )
            {
-                val res = comparar(producto1, producto2)
-                when (res){
-                    0 -> txterr.text = "Son iguales"
-                    1 -> txterr.text = "el 1 es mas barato"
-                    2 -> txterr.text = "el 2 es mas barato"
+               txterr.setTextColor(Color.BLACK)
+               when (comparar(producto1, producto2))
+                {
+                    0 ->  txterr.text = "Ambos Productos valen lo mismo"
+
+                    1 -> { txterr.text = "El producto 1 es al mas Economico"
+                           pintar(linear1,linear2,1) }
+
+                    2 -> { txterr.text = "El producto 2 es al mas Economico"
+                            pintar(linear1, linear2, 2) }
+                }
            }
-       }
-
-
        }
     }
 }
@@ -115,14 +125,28 @@ fun vererrores (p1:Producto, p2:Producto):String {
         return ""
     }
 }
-fun comparar (p1:Producto, p2:Producto):Int {
+fun comparar (p1:Producto , p2:Producto):Int {
 
-    val precioxunidad1 = p1.precio!! * p1.uni.factor!! / p1.cantidad!!
-    val precioxunidad2 = p2.precio!! * p2.uni.factor!! / p2.cantidad !!
-
+    val precioxunidad1 = p1.precio!! * p1.uni.factor / p1.cantidad!!
+    val precioxunidad2 = p2.precio!! * p2.uni.factor / p2.cantidad!!
 
     if (precioxunidad1 < precioxunidad2) return 1
     else if(precioxunidad1 > precioxunidad2) return 2
     else  return 0
 }
 
+fun limpiar( ll1:LinearLayout,ll2:LinearLayout,txt:TextView )
+{
+    ll1.setBackgroundColor(Color.TRANSPARENT)
+    ll2.setBackgroundColor(Color.TRANSPARENT)
+    txt.text=""
+}
+fun pintar( ll1:LinearLayout,ll2:LinearLayout, cual:Int )
+{
+    when(cual)
+    {
+        1->ll1.setBackgroundColor(Color.GREEN)
+        2->ll2.setBackgroundColor(Color.GREEN)
+    }
+
+}
