@@ -2,6 +2,7 @@ package com.example.comparadorpreciosmirabelli
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         val txterr = findViewById<TextView>(R.id.txterr)
         val linear1 = findViewById<LinearLayout>(R.id.llopcion1)
         val linear2 = findViewById<LinearLayout>(R.id.llopcion2)
+        val general = findViewById<LinearLayout>(R.id.general)
 
         //creo un ArrayAdapter para la lista creada.
         val adaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,uni_list)
@@ -83,6 +85,54 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // aqui seteo los eventos ontouch de todos los edit text y spinners
+        // para que llamen a la fun "limpiar"
+
+        txtprecio1.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                when (event?.action) {
+                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
+                }
+                return v?.onTouchEvent(event) ?: true }
+
+        })
+
+        txtcant1.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                when (event?.action) {
+                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
+                }
+                return v?.onTouchEvent(event) ?: true }
+        })
+        txtprecio2.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                when (event?.action) {
+                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
+                }
+                return v?.onTouchEvent(event) ?: true }
+        })
+        txtcant2.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                when (event?.action) {
+                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
+                }
+                return v?.onTouchEvent(event) ?: true }
+        })
+        sp1.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                when (event?.action) {
+                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
+                }
+                return v?.onTouchEvent(event) ?: true }
+        })
+        sp2.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                when (event?.action) {
+                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
+                }
+                return v?.onTouchEvent(event) ?: true }
+        })
+
        btnComparar.setOnClickListener {
            producto1.precio = txtprecio1.text.toString().toFloatOrNull()
            producto1.cantidad = txtcant1.text.toString().toFloatOrNull()
@@ -103,17 +153,20 @@ class MainActivity : AppCompatActivity() {
                 {
                     0 ->  txterr.text = "Ambos Productos valen lo mismo"
 
-                    1 -> { txterr.text = "El producto 1 es al mas Economico"
+                    1 -> { txterr.text = "El producto 1 es el mas Economico"
                            pintar(linear1,linear2,1) }
 
-                    2 -> { txterr.text = "El producto 2 es al mas Economico"
+                    2 -> { txterr.text = "El producto 2 es el mas Economico"
                             pintar(linear1, linear2, 2) }
                 }
            }
        }
     }
 }
-
+//------------------------------------------------------------------------------
+// esta fun verifica si hay errores
+// si los hay devulve un string con la descripcion del error
+// si no hay errores devuelve un string vacio ""
 fun vererrores (p1:Producto, p2:Producto):String {
     if (p1.uni.tipo != p2.uni.tipo)
         return p1.uni.toString() + " No es Comparable con " + p2.uni.toString()
@@ -125,6 +178,14 @@ fun vererrores (p1:Producto, p2:Producto):String {
         return ""
     }
 }
+
+//---------------------------------------------------------------------
+//  esta func compara los valores obteniedo el precio por unidad
+// de cada uno.
+// retorna:
+// 0 -> si tiene en mismo valor
+// 1 -> cuando el 1 es el mas barato
+// 2 -> cuando el 2 es el mas barato
 fun comparar (p1:Producto , p2:Producto):Int {
 
     val precioxunidad1 = p1.precio!! * p1.uni.factor / p1.cantidad!!
@@ -134,13 +195,16 @@ fun comparar (p1:Producto , p2:Producto):Int {
     else if(precioxunidad1 > precioxunidad2) return 2
     else  return 0
 }
-
+//----------------------------------------------------------------------
+// limpia el background de los 2 linearlayout y los mensajes de error
 fun limpiar( ll1:LinearLayout,ll2:LinearLayout,txt:TextView )
 {
     ll1.setBackgroundColor(Color.TRANSPARENT)
     ll2.setBackgroundColor(Color.TRANSPARENT)
     txt.text=""
 }
+//----------------------------------------------------------------------
+// pinta de verde el layout del producto ganador...
 fun pintar( ll1:LinearLayout,ll2:LinearLayout, cual:Int )
 {
     when(cual)
@@ -148,5 +212,4 @@ fun pintar( ll1:LinearLayout,ll2:LinearLayout, cual:Int )
         1->ll1.setBackgroundColor(Color.GREEN)
         2->ll2.setBackgroundColor(Color.GREEN)
     }
-
 }
