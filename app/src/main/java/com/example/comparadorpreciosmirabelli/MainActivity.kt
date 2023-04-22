@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // cargo lista de tipo unidad con las unidades y caracteristicas de cada una...
-        val uni_list = listOf<unidad>(unidad("Metros (m)",Longitud,1 ),
+        val uni_list = listOf<unidad>(
+            unidad("Metros (m)",Longitud,1 ),
             unidad("Centimetros (cm)",Longitud,100 ),
             unidad("Milimetros (mm)",Longitud,1000),
             unidad("Kilogramos (Kg)",Masa,1),
