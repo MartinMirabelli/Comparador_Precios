@@ -2,7 +2,7 @@ package prueba
 
 // clase unidad para definir las unidades utilizadas en la aplicacion
 
-open class unidad(val nombre:String,val tipo:TipoUnidad ,val factor:Int) {
+open class unidad(val nombre:String,val tipo:TipoUnidad ,val factor:Float) {
 
     override fun toString(): String {
         return nombre

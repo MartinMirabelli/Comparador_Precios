@@ -14,7 +14,7 @@ fun vererrores (p1:Producto, p2:Producto):String {
 
     if (p1.cantidad == null || p2.cantidad == null || p1.precio == null || p2.precio== null)
         return "Debe especificar TODOS los precios cantidades"
-    else if (p1.cantidad == 0.toFloat() || p2.cantidad == 0.toFloat() || p1.precio == 0.toFloat() || p2.precio== 0.toFloat())
+    else if (p1.cantidad == 0F || p2.cantidad == 0F || p1.precio == 0F || p2.precio== 0F)
         return "Los Precios y Cantidades NO pueden ser 0 (cero)"
     else
     {

@@ -18,20 +18,22 @@ class MainActivity : AppCompatActivity() {
 
         // cargo lista de tipo unidad con las unidades y caracteristicas de cada una...
         val uni_list = listOf<unidad>(
-            unidad("Metros (m)",Longitud,1 ),
-            unidad("Centimetros (cm)",Longitud,100 ),
-            unidad("Milimetros (mm)",Longitud,1000),
-            unidad("Kilogramos (Kg)",Masa,1),
-            unidad("Gramos (gr)",Masa,1000),
-            unidad("Litros (L)",Volumen,1),
-            unidad("Centilitros (cL)",Volumen,100),
-            unidad("Centimetros Cubico (cm3)",Volumen,1000),
-            unidad("Milimetros Cubicos (mm3)",Volumen,1000000))
+            unidad("Metros (m)",Longitud,1f ),
+            unidad("Centimetros (cm)",Longitud,100f ),
+            unidad("Milimetros (mm)",Longitud,1000f),
+            unidad("Pulgadas (in)",Longitud,39.37007874015748f),  //esta unidad la agrego yo a modo de prueba
+
+            unidad("Kilogramos (Kg)",Masa,1f),
+            unidad("Gramos (gr)",Masa,1000f),
+            unidad("Litros (L)",Volumen,1f),
+            unidad("Centilitros (cL)",Volumen,100f),
+            unidad("Centimetros Cubico (cm3)",Volumen,1000f),
+            unidad("Milimetros Cubicos (mm3)",Volumen,1000000f))
 
         var unidad1 = uni_list[0]
         var unidad2 = uni_list[0]
-        val producto1 = Producto(0.toFloat(),0.toFloat(),unidad1)
-        val producto2 = Producto(0.toFloat(),0.toFloat(),unidad2)
+        val producto1 = Producto(0F,0F,unidad1)
+        val producto2 = Producto(0F,0F,unidad2)
 
         //creo una val spinner y busco su id
         val sp1 = findViewById<Spinner>(R.id.sp1)
