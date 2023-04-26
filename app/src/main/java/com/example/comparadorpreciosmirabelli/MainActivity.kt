@@ -16,19 +16,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         // cargo lista de tipo unidad con las unidades y caracteristicas de cada una...
         val uni_list = listOf<unidad>(
-            unidad("Metros (m)",Longitud,1f ),
-            unidad("Centimetros (cm)",Longitud,100f ),
-            unidad("Milimetros (mm)",Longitud,1000f),
-            unidad("Pulgadas (in)",Longitud,39.37007874015748f),  //esta unidad la agrego yo a modo de prueba
+            unidad(getString(R.string.Metros),Longitud,1f ),
+            unidad(getString(R.string.Centimetros),Longitud,100f ),
+            unidad(getString(R.string.Milimetros),Longitud,1000f),
+            unidad(getString(R.string.Pulgadas),Longitud,39.37007874015748f),  //esta unidad la agrego yo a modo de prueba
 
-            unidad("Kilogramos (Kg)",Masa,1f),
-            unidad("Gramos (gr)",Masa,1000f),
-            unidad("Litros (L)",Volumen,1f),
-            unidad("Centilitros (cL)",Volumen,100f),
-            unidad("Centimetros Cubico (cm3)",Volumen,1000f),
-            unidad("Milimetros Cubicos (mm3)",Volumen,1000000f))
+            unidad(getString(R.string.Kilogramos),Masa,1f),
+            unidad(getString(R.string.Gramos),Masa,1000f),
+            unidad(getString(R.string.Litros),Volumen,1f),
+            unidad(getString(R.string.Centilitros),Volumen,100f),
+            unidad(getString(R.string.cmCubicos),Volumen,1000f),
+            unidad(getString(R.string.mmCubicos),Volumen,1000000f))
 
         var unidad1 = uni_list[0]
         var unidad2 = uni_list[0]
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         val txterr = findViewById<TextView>(R.id.txterr)
         val linear1 = findViewById<LinearLayout>(R.id.llopcion1)
         val linear2 = findViewById<LinearLayout>(R.id.llopcion2)
-        val general = findViewById<LinearLayout>(R.id.general)
+
 
         //creo un ArrayAdapter para la lista creada.
         val adaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,uni_list)

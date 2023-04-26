@@ -5,22 +5,22 @@
     <string name="cantidad1">Cantidad 1</string>
     <string name="cantidad2">Cantidad 2</string>
     <string name="btncomparar">Comparar</string>
-
     <string name="spdescrip">Seleccione la Unidad de medida</string>
 
-    <string-array name="unidades">
-        <item>Gramo (g)</item>
-        <item>Kilogramo (Kg)</item>
 
-        <item>Litro (l)</item>
-        <item>Mililitro (ml)</item>
-        <item>Centilitro (cl)</item>
-        <item>Centrimetro Cubico (cm3)</item>
-        <item>Milimetro Cubico (mm3)</item>
+    <!-- Unidades de medida para los spinners /!-->
 
-        <item>Metro (m)</item>
-        <item>Centimetro (cm)</item>
-        <item>Milimetro (mm)</item>
-    </string-array>
+    <string name="Metros">Metros (m)</string>
+    <string name="Centimetros">Centimetros (cm)</string>
+    <string name="Milimetros">Milimetros (mm)</string>
+    <string name="Pulgadas">Pulgadas (in)</string>
+    <string name="Kilogramos">Kilogramos (Kg)</string>
+    <string name="Gramos">Gramos (gr)</string>
+    <string name="Litros">Litros (L)</string>
+    <string name="Centilitros">Centilitros (cL)</string>
+    <string name="cmCubicos">Centimetros Cubico (cm3)"</string>
+    <string name="mmCubicos">Milimetros Cubicos (mm3)</string>
+
+
 
 </resources>
