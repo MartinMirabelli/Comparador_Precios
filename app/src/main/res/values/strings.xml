@@ -21,6 +21,15 @@
     <string name="cmCubicos">Centimetros Cubico (cm3)"</string>
     <string name="mmCubicos">Milimetros Cubicos (mm3)</string>
 
+    <!-- Mensajes de error / warning /!-->
+    <string name="IgualValor">Ambos Productos valen lo mismo</string>
+    <string name="Prod1Win">El producto 1 es el mas Economico</string>
+    <string name="Prod2Win">El producto 2 es el mas Economico</string>
+
+    <string name="NoComparable"> No es Comparable con </string>
+    <string name="DebeEspecif"> Debe especificar TODOS los precios cantidades  </string>
+    <string name="NoCeros">Los Precios y Cantidades NO pueden ser 0 (cero) </string>
+
 
 
 </resources>

@@ -17,9 +17,8 @@ fun vererrores (p1:Producto, p2:Producto):String {
     else if (p1.cantidad == 0F || p2.cantidad == 0F || p1.precio == 0F || p2.precio== 0F)
         return "Los Precios y Cantidades NO pueden ser 0 (cero)"
     else
-    {
-        return ""
-    }
+        return ""  // no hay errores
+
 }
 
 //---------------------------------------------------------------------

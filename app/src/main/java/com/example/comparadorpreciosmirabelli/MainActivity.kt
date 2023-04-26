@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         // cargo lista de tipo unidad con las unidades y caracteristicas de cada una...
         val uni_list = listOf<unidad>(
             unidad(getString(R.string.Metros),Longitud,1f ),
@@ -65,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                                         p1: View?,
                                         index: Int,
                                         p3: Long) {
-               //Toast.makeText(this@MainActivity,uni_list[index].factor.toString(),Toast.LENGTH_SHORT).show()
+
                 unidad1 = uni_list[index]
             }
 
@@ -81,7 +80,6 @@ class MainActivity : AppCompatActivity() {
                                         index: Int,
                                         p3: Long) {
 
-                //Toast.makeText(this@MainActivity,uni_list[index].factor.toString(),Toast.LENGTH_SHORT).show()
                 unidad2 = uni_list[index]
             }
 
@@ -156,12 +154,12 @@ class MainActivity : AppCompatActivity() {
                txterr.setTextColor(Color.BLACK)
                when (comparar(producto1, producto2))
                 {
-                    0 ->  txterr.text = "Ambos Productos valen lo mismo"
+                    0 ->  txterr.text = getString(R.string.IgualValor)
 
-                    1 -> { txterr.text = "El producto 1 es el mas Economico"
+                    1 -> { txterr.text = getString(R.string.Prod1Win)
                            pintar(linear1,linear2,1) }
 
-                    2 -> { txterr.text = "El producto 2 es el mas Economico"
+                    2 -> { txterr.text =  getString(R.string.Prod2Win)
                             pintar(linear1, linear2, 2) }
                 }
            }
