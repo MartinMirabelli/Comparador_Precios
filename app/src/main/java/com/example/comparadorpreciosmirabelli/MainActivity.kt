@@ -1,5 +1,6 @@
 package com.example.comparadorpreciosmirabelli
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.MotionEvent
@@ -12,6 +13,7 @@ import prueba.unidad
 import prueba.*
 
 class MainActivity : AppCompatActivity() {
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
