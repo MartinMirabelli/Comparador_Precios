@@ -142,6 +142,7 @@ class MainActivity : AppCompatActivity() {
            producto1.precio = txtprecio1.text.toString().toFloatOrNull()
            producto1.cantidad = txtcant1.text.toString().toFloatOrNull()
            producto1.uni = unidad1
+
            producto2.precio = txtprecio2.text.toString().toFloatOrNull()
            producto2.cantidad = txtcant2.text.toString().toFloatOrNull()
            producto2.uni = unidad2
@@ -149,12 +150,13 @@ class MainActivity : AppCompatActivity() {
            limpiar(linear1,linear2,txterr)
 
            txterr.setTextColor(Color.RED)
-           txterr.text = vererrores (producto1,producto2)
+           txterr.text = Producto.vererrores (producto1,producto2)
 
            if( txterr.text =="" )
            {
                txterr.setTextColor(Color.BLACK)
-               when (comparar(producto1, producto2))
+               //when (comparar(producto1, producto2))
+               when (Producto.comparar(producto1, producto2))
                 {
                     0 ->  txterr.text = getString(R.string.IgualValor)
 
