@@ -93,50 +93,19 @@ class MainActivity : AppCompatActivity() {
         // aqui seteo los eventos ontouch de todos los edit text y spinners
         // para que llamen a la fun "limpiar"
 
-        txtprecio1.setOnTouchListener(object : View.OnTouchListener {
-            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                when (event?.action) {
-                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
-                }
-                return v?.onTouchEvent(event) ?: true }
+        val limpiarTouchListener = View.OnTouchListener { v, event ->
+            when (event?.action) {
+                MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
+            }
+            v?.onTouchEvent(event) ?: true
+        }
+        txtprecio1.setOnTouchListener(limpiarTouchListener)
+        txtcant1.setOnTouchListener(limpiarTouchListener)
+        txtprecio2.setOnTouchListener(limpiarTouchListener)
+        txtcant2.setOnTouchListener(limpiarTouchListener)
+        sp1.setOnTouchListener(limpiarTouchListener)
+        sp2.setOnTouchListener(limpiarTouchListener)
 
-        })
-
-        txtcant1.setOnTouchListener(object : View.OnTouchListener {
-            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                when (event?.action) {
-                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
-                }
-                return v?.onTouchEvent(event) ?: true }
-        })
-        txtprecio2.setOnTouchListener(object : View.OnTouchListener {
-            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                when (event?.action) {
-                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
-                }
-                return v?.onTouchEvent(event) ?: true }
-        })
-        txtcant2.setOnTouchListener(object : View.OnTouchListener {
-            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                when (event?.action) {
-                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
-                }
-                return v?.onTouchEvent(event) ?: true }
-        })
-        sp1.setOnTouchListener(object : View.OnTouchListener {
-            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                when (event?.action) {
-                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
-                }
-                return v?.onTouchEvent(event) ?: true }
-        })
-        sp2.setOnTouchListener(object : View.OnTouchListener {
-            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                when (event?.action) {
-                    MotionEvent.ACTION_DOWN -> limpiar(linear1,linear2,txterr)
-                }
-                return v?.onTouchEvent(event) ?: true }
-        })
 
        btnComparar.setOnClickListener {
            producto1.precio = txtprecio1.text.toString().toFloatOrNull()
@@ -150,20 +119,19 @@ class MainActivity : AppCompatActivity() {
            limpiar(linear1,linear2,txterr)
 
            txterr.setTextColor(Color.RED)
-           txterr.text = Producto.vererrores (producto1,producto2)
+           txterr.text = Producto.vererrores (producto1,producto2,this)
 
            if( txterr.text =="" )
            {
                txterr.setTextColor(Color.BLACK)
-               //when (comparar(producto1, producto2))
-               when (Producto.comparar(producto1, producto2))
+                when (Producto.comparar(producto1, producto2))
                 {
-                    0 ->  txterr.text = getString(R.string.IgualValor)
+                    Producto.IGUALVALOR ->  txterr.text = getString(R.string.IgualValor)
 
-                    1 -> { txterr.text = getString(R.string.Prod1Win)
+                    Producto.PROD1_WINS -> { txterr.text = getString(R.string.Prod1Win)
                            pintar(linear1,linear2,1) }
 
-                    2 -> { txterr.text =  getString(R.string.Prod2Win)
+                    Producto.PROD2_WINS -> { txterr.text =  getString(R.string.Prod2Win)
                             pintar(linear1, linear2, 2) }
                 }
            }
